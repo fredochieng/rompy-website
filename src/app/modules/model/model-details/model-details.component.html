@@ -1,0 +1,14 @@
+<app-page-header [breadcrumbs]="[
+    {label: 'Home',         url: '/'},
+    {label: 'models', url: '/'},
+    {label: model?.name || '',  url: ''}
+]"></app-page-header>
+
+<ng-container *ngIf="layout !== 'sidebar'">
+    <div class="block">
+        <div class="container">
+            <app-single-model [model]="model" [layout]="layout"></app-single-model>
+        </div>
+    </div>
+
+</ng-container>

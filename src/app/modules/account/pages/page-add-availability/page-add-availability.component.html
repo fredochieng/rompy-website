@@ -1,0 +1,53 @@
+<div class="dashboard">
+     <div class="dashboard__address card address-card address-card--featured">
+        <div class="address-card__badge" >Availability</div>
+        <div class="address-card__body">
+              <div class="col-md-12">
+                    <div class="card-header">
+                       <h5>Availability</h5>
+                    </div>
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped">
+                          <ng-container *ngFor="let s of data">
+                            <tr>
+                                <td style="padding: .75rem; vertical-align: top; border-top: 1px solid #e9ecef;">{{s.availability}}</td>
+                                <td >
+                                  <button type="button" class="btn btn-link"><span style="color:red">X</span></button>
+                                </td>
+                            </tr>
+                          </ng-container>  
+                        </table>
+                    </div>
+                </div> 
+        </div>
+    </div>
+     <div class="dashboard__address card address-card address-card--featured">
+        <div class="address-card__body">
+              <div class="col-md-12">
+                    <div class="card-header"> 
+                       <h5>Add Service</h5>
+                    </div>
+                     <form [formGroup]="form">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="checkout-country">AVAILABILITY</label>
+                                <select multiple id="checkout-country" class="form-control form-control-select2" formControlName="availability_id" name="select[]">
+                                    <option>Select a availability...</option>
+                                    <option *ngFor="let item of dropdownList" [value]="item.availability_id">{{item.availability}}</option>
+                                </select>
+                            
+                            <div ngxErrors="availability_id"> 
+                                <div ngxError="required" when="dirty">Required Field</div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0">
+                                <button type="submit" (click)="onSubmit(form.value)" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div> 
+        </div>
+    </div>   
+   
+       
+</div>

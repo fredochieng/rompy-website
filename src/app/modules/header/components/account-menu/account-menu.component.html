@@ -1,0 +1,22 @@
+<div class="account-menu">
+     <ul class="account-menu__links">
+        <li *ngIf="!isLoggedIn"><a routerLink="/account/login" (click)="closeMenu.emit()">Login</a></li>
+    </ul>
+    <div class="account-menu__divider"></div>
+    <div *ngIf="isLoggedIn">
+       <a routerLink="/account/profile" class="account-menu__user" (click)="closeMenu.emit()">
+        <div class="account-menu__user-avatar">
+            <img src="assets/images/avatars/avatar-3.jpg" alt="">
+        </div>
+        <div class="account-menu__user-info">
+            <div class="account-menu__user-name">{{name}}</div>
+            <div class="account-menu__user-email">{{email}}</div>
+        </div>
+    </a>
+    <div class="account-menu__divider"></div>
+    <ul class="account-menu__links">
+        <li><button type="button" class="btn btn-link" (click)="logout()">Logout</button></li>
+    </ul>
+    </div>
+    
+</div>

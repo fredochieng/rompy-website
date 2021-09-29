@@ -1,0 +1,39 @@
+<div class="mt-5"></div>
+
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 d-flex">
+               
+            </div>
+            <div class="col-md-6 d-flex">
+                <div *ngIf="divShow" class="card flex-grow-1 mb-md-0">
+                    <div class="card-body">
+                        <h3 class="card-title">Reset Password</h3>
+                        <form>
+                            <div class="form-group">
+                                <label>Email address</label>
+                                <input type="email" class="form-control" placeholder="Enter email">
+                            </div>
+                           
+                            <button type="submit" class="btn btn-primary mt-2 mt-md-3 mt-lg-4">Reset</button>
+                        </form>
+                    </div> 
+                </div>
+                 <div *ngIf="!divShow" class="card flex-grow-1 mb-md-0">
+                    <div class="card-body">
+                        <p class="card-title">
+                             Reset Password link has been sent to your email.
+                             Kindly check your email for further instruction
+                        </p>
+                        <a routerLink="/login">back to login</a>
+                        
+                    </div> 
+                </div>
+            </div>
+             <div class="col-md-3 d-flex">
+               
+            </div>
+        </div>
+    </div>
+</div>

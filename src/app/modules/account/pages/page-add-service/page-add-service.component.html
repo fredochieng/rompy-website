@@ -1,0 +1,54 @@
+<div class="dashboard">
+     <div class="dashboard__address card address-card address-card--featured">
+        <div class="address-card__badge" >My Services</div>
+        <div class="address-card__body">
+              <div class="col-md-12">
+                    <div class="card-header">
+                       <h5>My Services</h5>
+                    </div>
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped">
+                          <ng-container *ngFor="let s of myServices">
+                            <tr>
+                                <td style="padding: .75rem; vertical-align: top; border-top: 1px solid #e9ecef;">{{s.service}}</td>
+                                <td >
+                                  <button type="button" class="btn btn-link"><span style="color:red">X</span></button>
+                                  
+                                </td>
+                            </tr>
+                          </ng-container>  
+                        </table>
+                    </div>
+                </div> 
+        </div>
+    </div>
+     <div class="dashboard__address card address-card address-card--featured">
+        <div class="address-card__body">
+              <div class="col-md-12">
+                    <div class="card-header"> 
+                       <h5>Add Service</h5>
+                    </div>
+                     <form [formGroup]="form">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="checkout-country">Services</label>
+                                <select multiple id="checkout-country" class="form-control form-control-select2" formControlName="service_id" name="select[]">
+                                    <option>Select a service...</option>
+                                    <option *ngFor="let item of dropdownList" [value]="item.service_id">{{item.service}}</option>
+                                </select>
+                            
+                            <div ngxErrors="service_id"> 
+                                <div ngxError="required" when="dirty">Required Field</div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-0">
+                                <button type="submit" (click)="onSubmit(form.value)" class="btn btn-primary">Add Service</button>
+                        </div>
+                    </form>
+                </div> 
+        </div>
+    </div>   
+   
+       
+</div>

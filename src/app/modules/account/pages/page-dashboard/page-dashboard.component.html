@@ -1,0 +1,66 @@
+<div class="dashboard">
+    <div class="dashboard__profile card profile-card">
+        <div class="card-body profile-card__body">
+            <div class="profile-card__avatar">
+                <img src="./assets/images/avatars/avatar-3.jpg" alt="">
+            </div>
+            <div class="profile-card__name">{{name}}</div>
+            <div class="profile-card__email">{{email}}</div>
+            
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+            </div>
+            <form [formGroup]="form" (ngSubmit)="onUpload()">
+                <div class="form-group">
+                    <input style="display: none" 
+                       type="file" (change)="onFileChanged($event)"  accept="image/*" #fileInput>
+                    <button class="btn btn-primary btn-block" (click)="fileInput.click()">Select Image</button>
+                    
+                </div>
+            
+                <div class="">
+                    <button class="btn btn-info btn-sm btn-block" type="submit">Upload</button>
+               </div> 
+            </form>
+           
+        </div>
+    </div>
+   
+    <div class="dashboard__address card address-card address-card--featured">
+        <div class="address-card__badge" >Contact Info</div>
+        <div class="address-card__body">
+            <div class="address-card__row">
+                <div class="address-card__row-title">Country</div>
+                <div class="address-card__row-content">{{country}}</div>
+            </div>
+            <div class="address-card__row">
+                <div class="address-card__row-title">City</div>
+                <div class="address-card__row-content">{{city}}</div>
+            </div>
+            <div class="address-card__row">
+                <div class="address-card__row-title">Phone Number</div>
+                <div class="address-card__row-content">{{phone_no}}</div>
+            </div>
+            <div class="address-card__row">
+                <div class="address-card__row-title">Real Phone Number</div>
+                <div class="address-card__row-content">{{real_phone_no}}</div>
+            </div>
+            <div class="address-card__row">
+                <div class="address-card__row-title">Email Address</div>
+                <div class="address-card__row-content">{{email}}</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="dashboard__orders card">
+       <div class="address-card__badge" >About Model</div>
+         <div class="card-body profile-card__body">
+            {{about}}
+        </div>
+    </div>
+   
+</div>
+
+
+

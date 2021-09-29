@@ -1,0 +1,44 @@
+<div class="search__body">
+    <form [formGroup]="form" class="search__form">
+        <select
+            *ngIf="location === 'header'"
+            class="search__categories"
+            aria-label="Category"
+            formControlName="category"
+            (focus)="closeSuggestion()"
+        >
+            <option value="all">All Categories</option>
+            <option
+                *ngFor="let category of categories"
+                [value]="category.slug"
+                
+            ></option>
+        </select>
+        <input
+            class="search__input"
+            name="search"
+            placeholder="Search over 10,000 products"
+            aria-label="Site search"
+            type="text"
+            autocomplete="off"
+            formControlName="query"
+            (keydown.escape)="escape.next()"
+            (focus)="openSuggestion()"
+            #input
+        >
+        <button class="search__button search__button--type--submit" type="submit">
+            <app-icon name="search-20" size="20"></app-icon>
+        </button>
+        <button
+            *ngIf="location === 'mobile-header'"
+            class="search__button search__button--type--close"
+            type="button"
+            (click)="closeButtonClick.next()"
+        >
+            <app-icon name="cross-20" size="20"></app-icon>
+        </button>
+        <div class="search__border"></div>
+    </form>
+
+   
+</div>
